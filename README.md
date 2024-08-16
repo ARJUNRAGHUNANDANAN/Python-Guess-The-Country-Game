@@ -6,7 +6,7 @@ This project is actively under development. There are MD Files in each sub folde
 
 The project is organized into several components, each with a specific purpose. Here's an overview of the main directories:
 
-**Node-Country-Shape-Generator/**: This folder contains the code and resources for generating country shape images used in the game. The images are saved in the format `ISOStandardCode-CountryName.jpg`. Note that this directory contains a partial project focused on the generation of country shapes and not the entire game logic.
+**Module-Country-Shape-Generator/**: This folder contains the code and resources for generating country shape images used in the game. The images are saved in the format `ISOStandardCode-CountryName.jpg`. Note that this directory contains a partial project focused on the generation of country shapes and not the entire game logic.
 
 Other parts are still pending. 
 

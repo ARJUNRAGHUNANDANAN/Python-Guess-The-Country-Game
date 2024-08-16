@@ -17,7 +17,7 @@ This is not intended to be used as a standalone project and is a partial code to
 ```
 git clone https://github.com/ARJUNRAGHUNANDANAN/Python-Guess-The-Country-Game.git
 cd Python-Guess-The-Country-Game
-cd Node-Country-Shape-Generator
+cd Module-Country-Shape-Generator
 ```
 
 2. **Install Required Libraries**:
