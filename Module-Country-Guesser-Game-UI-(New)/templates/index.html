@@ -1,0 +1,205 @@
+<!-- @arjunraghunandanan 2024 Guess The Country Game -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+
+    <title>Guess the   
+ Country</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family:   
+ sans-serif;
+        }
+
+        header {
+            background-color: #1976D2; /* Theme color from image */
+            color: white;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        #theme-switcher {
+            cursor: pointer;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px;
+        }
+
+        #image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        #country-image {
+            width: 50%;
+            max-width: 500px; /* Adjust as needed */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+        }
+
+        #guess-form {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        #guess-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            flex-grow: 1; /* Allow input to fill remaining space */
+        }
+
+        #guess-form button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #guess-form button:nth-child(1) {
+            background-color: #4CAF50; /* Green button from image */
+            color: white;
+        }
+
+        #guess-form button:nth-child(2) {
+            background-color: #ccc;
+            color: black;
+        }
+
+        #result {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #1976D2; /* Theme color from image */
+            color: white;
+            padding: 16px;
+            text-align: center;
+        }
+
+        /* Theme toggle CSS */
+        body.dark-theme {
+            background-color: #333;
+            color: white;
+        }
+
+        body.dark-theme header {
+            background-color: #444;
+        }
+
+        body.dark-theme #country-image {
+            background-color: #444;
+        }
+
+        body.dark-theme #guess-form button:nth-child(1) {
+            background-color: #008000;
+        }
+
+        body.dark-theme #guess-form button:nth-child(2) {
+            background-color: #666;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #country-image {
+                width: 100%;
+            }
+
+            #guess-form {
+                flex-direction: column;
+            }
+
+            #guess-form button {
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guess the Country</h1>
+        <div id="theme-switcher">
+            <i class="material-icons">brightness_medium</i>
+        </div>
+    </header>
+    <div id="content">
+        <div id="image-container">
+            <img id="country-image" src="" alt="Country Image">
+        </div>
+        <form id="guess-form">
+            <input type="text" id="guess-input" placeholder="Enter your guess" required>
+            <button type="submit">Guess</button>
+            <button type="button" id="new-image-button">New Image</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <footer>
+        2024 Arjun Raghunandanan | Made for Open Source <br>
+        <a href="https://github.com/ARJUNRAGHUNANDANAN/Python-Guess-The-Country-Game/">GitHub Repository</a>
+    </footer>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function loadCountryImage() {
+                $.get('/get_country_image', function(data) {
+                    $('#country-image').attr('src', data.image_path);
+                    $('#result').empty(); // Clear result message when new image is loaded
+                    $('#guess-input').val(''); // Clear input field when new image is loaded
+                });
+            }
+
+            // Load the initial country image
+            loadCountryImage();
+
+            // Handle form submission
+            $('#guess-form').submit(function(e) {
+                e.preventDefault();
+                var guess = $('#guess-input').val();
+                $.post('/check_guess', { guess: guess }, function(data) {
+                    if (data.success) {
+                        $('#result').html(data.message);
+                    } else {
+                        $('#result').html(data.message); // Show the message
+                        if (!data.success && data.message.includes("correct country is")) {
+                            $('#guess-form').find('button[type="submit"]').prop('disabled', true); // Disable submit button after 3 tries
+                        }
+                    }
+                });
+            });
+
+            // Handle New Image button click
+            $('#new-image-button').click(function() {
+                loadCountryImage();
+                $('#guess-form').find('button[type="submit"]').prop('disabled', false); // Enable submit button for new image
+            });
+
+            // Handle theme toggle click
+            $('#theme-switcher').click(function() {
+                $('body').toggleClass('dark-theme');
+            });
+        });
+    </script>
+</body>
+</html>

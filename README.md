@@ -36,8 +36,40 @@ The project is organized into several components, each with a specific purpose. 
 | ![Retry](Module-Country-Guesser-Simple-UI/output_sample/attempt-retry.jpg) | ![Correct](Module-Country-Guesser-Simple-UI/output_sample/attempt-correct.jpg) |![Wrong](Module-Country-Guesser-Simple-UI/output_sample/attempt-wrong.jpg) |
 |                |                 |
 
-Other parts are still pending. 
+### Better Game UI
+
+| Mobile | Desktop |
+|:----|:------|
+| ![Mobile](Module-Country-Guesser-Game-UI-(New)/screenshots/betterUI-mobile.jpg) | ![Desktop](Module-Country-Guesser-Game-UI-(New)/screenshots/betterUI-desktop.jpg) |
+|                |                 |
+
+Other Improvements may be done later. For now, Shape Generation and Game UI are kept seperate. I haven't packages everything into a single application yet. Maybe later. 
+
+## Demo Video
+Will update later. 
+
+## Notes for Shape Generator.
+
+- While the shape generator script accurately generates most of the shape files. its not High Definition and shapes are not that clear for countries that are massive or spread across a wide area or water body. For Example. USA is weird at the moment. Russia is too stretched. Some small countries are just blobs. Island groups spread accross water are very small to see. 
+- Ensure that you have an active internet connection if the shapefile needs to be downloaded.
+
+## Notes for Game UI.
+
+- I am not that good at Full Stack Development. My best option was to use Flask. Using IDX helped a lot with running Flask App but it's not perfect. 
+- Feel free to use the project or add your improvements if you are a skilled Full Stack Dev.
 
 ## License for Code
 
 This code is open-source and free to use under the MIT License. Modify and reuse as you wish.
+
+## License for Shapefile Dataset
+> World Bank Official Boundaries 
+>
+> Classification: Public
+> 
+> This dataset is classified as Public under the Access to Information Classification Policy. Users inside and outside the Bank can access this dataset. 
+>
+>License: Creative Commons Attribution 4.0
+> 
+> URL : https://datacatalog.worldbank.org/search/dataset/0038272/World-Bank-Official-Boundaries
+>

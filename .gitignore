@@ -1,3 +1,10 @@
+# Google Project IDX
+.venv
+devserver.sh
+.vscode
+.idx
+__pycache__
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
