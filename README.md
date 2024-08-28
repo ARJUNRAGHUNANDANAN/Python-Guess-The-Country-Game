@@ -45,8 +45,8 @@ The project is organized into several components, each with a specific purpose. 
 
 Other Improvements may be done later. For now, Shape Generation and Game UI are kept seperate. I haven't packages everything into a single application yet. Maybe later. 
 
-## Demo Video
-Will update later. 
+## Demo Video (Click For Video)
+[![Better UI Desktop Screenshot](Module-Country-Guesser-Game-UI-(New)/screenshots/betterUI-desktop.jpg)](https://github.com/ARJUNRAGHUNANDANAN/Python-Guess-The-Country-Game/raw/main/Module-Country-Guesser-Game-UI-(New)/screenshots/guess-the-country-demo-2024-08-29_00.41.56.mp4)
 
 ## Notes for Shape Generator.
 
