@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Country</title>
+</head>
+<body>
+    <h1>Guess the Country</h1>
+    <img id="country-image" src="" alt="Country Image">
+    <form id="guess-form">
+        <input type="text" id="guess-input" placeholder="Enter your guess" required>
+        <button type="submit">Guess</button>
+        <button type="button" id="new-image-button">New Image</button>
+    </form>
+    <div id="result"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function loadCountryImage() {
+                $.get('/get_country_image', function(data) {
+                    $('#country-image').attr('src', data.image_path);
+                    $('#result').empty(); // Clear result message when new image is loaded
+                });
+            }
+
+            // Load the initial country image
+            loadCountryImage();
+
+            // Handle form submission
+            $('#guess-form').submit(function(e) {
+                e.preventDefault();
+                var guess = $('#guess-input').val();
+                $.post('/check_guess', { guess: guess }, function(data) {
+                    if (data.success) {
+                        $('#result').html(data.message);
+                    } else {
+                        $('#result').html(data.message); // Show the message
+                        if (!data.success && data.message.includes("correct country is")) {
+                            $('#guess-form').find('button[type="submit"]').prop('disabled', true); // Disable submit button after 3 tries
+                        }
+                    }
+                });
+            });
+
+            // Handle New Image button click
+            $('#new-image-button').click(function() {
+                loadCountryImage();
+                $('#guess-form').find('button[type="submit"]').prop('disabled', false); // Enable submit button for new image
+            });
+        });
+    </script>
+</body>
+</html>
