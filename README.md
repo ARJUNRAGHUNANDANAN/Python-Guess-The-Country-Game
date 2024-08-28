@@ -1,7 +1,20 @@
 # Python-Guess-The-Country-Game
 
-This project is actively under development. There are MD Files in each sub folder describing the details of each folder for the time being. 
+This project is under development. There are MD Files in each sub folder describing the details of each folder for the time being. 
 
+## Stack:
+![HTML](https://img.shields.io/badge/HTML-%23E34F26?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-%231572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1C?logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-%23239CFF?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-%23000?logo=flask&logoColor=white)
+
+
+![MIT License](https://img.shields.io/badge/License-MIT-green)
+![Google Project IDX](https://img.shields.io/badge/Assisted%20By-Google%20Project%20IDX-lightgrey)
+![Google Gemini](https://img.shields.io/badge/Assisted%20By-Google%20Gemini-lightgrey)
+
+---
 ## Main Home Repo Structure
 
 The project is organized into several components, each with a specific purpose. Here's an overview of the main directories:
